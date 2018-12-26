@@ -44,32 +44,32 @@ def main():
         rgb_small_frame = small_frame[:, :, ::-1]
 
         # Only process every other frame of video to save time
-        if process_this_frame%(5)==0:
+        if process_this_frame%(25*2)==0:
             process_this_frame = 1 
             # Find all the faces and face encodings in the current frame of video
             face_locations = face_recognition.face_locations(rgb_small_frame)
             face_encodings = face_recognition.face_encodings(rgb_small_frame, face_locations)
 
+            # Display the results
+            for (top, right, bottom, left) in face_locations:
+                face_frames = frame
+                # Scale back up face locations since the frame we detected in was scaled to 1/4 size
+                top *= 4
+                right *= 4
+                bottom *= 4
+                left *= 4
+
+                # Draw a box around the face
+                #cv2.rectangle(face_frames, (left, top), (right, bottom), (0, 0, 255), 2)
+
+                # Crop image
+                face_frames = face_frames[top:bottom,left:right]
+
+                # print(face_frames.shape) # Output: (480, 640, 3)
+                msg_frame = CvBridge().cv2_to_imgmsg(face_frames, encoding="passthrough")
+                face_publisher.publish(msg_frame)
+                
         process_this_frame = process_this_frame+1
-
-        # Display the results
-        for (top, right, bottom, left) in face_locations:
-            face_frames = frame
-            # Scale back up face locations since the frame we detected in was scaled to 1/4 size
-            top *= 4
-            right *= 4
-            bottom *= 4
-            left *= 4
-
-            # Draw a box around the face
-            #cv2.rectangle(face_frames, (left, top), (right, bottom), (0, 0, 255), 2)
-
-            # Crop image
-            face_frames = face_frames[top:bottom,left:right]
-
-            # print(face_frames.shape) # Output: (480, 640, 3)
-            msg_frame = CvBridge().cv2_to_imgmsg(face_frames, encoding="passthrough")
-            face_publisher.publish(msg_frame)
 
         # Display the resulting image
         cv2.imshow('Live video', frame)
