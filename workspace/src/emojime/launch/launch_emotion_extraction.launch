@@ -1,0 +1,4 @@
+<launch>
+	<node pkg="emojime" type="emotion_extraction.py" name="emotion_extraction" output="screen">
+	</node>
+</launch>

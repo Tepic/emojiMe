@@ -22,12 +22,11 @@ def callback_faces(data):
         print("Exiting")
 
 def main():
+    rospy.init_node('emotion_extraction')
+    rospy.Subscriber("/faces", Image , callback_faces)
     while not rospy.is_shutdown():
         #hello_str = "hello world %s" % rospy.get_time()
         #rospy.loginfo(hello_str
-
-        rospy.init_node('emotion_extraction')
-        rospy.Subscriber("/faces", Image , callback_faces)
         rospy.spin()
 
 if __name__ == '__main__':
