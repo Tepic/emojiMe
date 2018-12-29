@@ -14,15 +14,19 @@ import time
 from messages.msg import ImageArray
 
 def callback_faces(data):
-    frame = CvBridge().imgmsg_to_cv2(data[0])
-    #encoding is correct - CHECKED
-    cv2.imshow('Detected faces', frame)
-    #imshow works only if waitKey is used after it\
-    #otherwise it won't show the image
+    elements = range(len(data.ImageArray))
 
-    # Hit 'q' on the keyboard to quit!
-    if cv2.waitKey(1) & 0xFF == ord('q'):
-        print("Exiting")
+    for counter in elements:
+        face = data.ImageArray[counter] # <-- change to display all faces ! ! !
+        frame = CvBridge().imgmsg_to_cv2(face)
+        #encoding is correct - CHECKED
+        cv2.imshow('Detected face '+str(counter+1), frame)
+        #imshow works only if waitKey is used after it\
+        #otherwise it won't show the image
+
+        # Hit 'q' on the keyboard to quit!
+        if cv2.waitKey(1) & 0xFF == ord('q'):
+            print("Exiting")
 
 def main():
     rospy.init_node('emotion_extraction')
@@ -31,6 +35,8 @@ def main():
         #hello_str = "hello world %s" % rospy.get_time()
         #rospy.loginfo(hello_str
         rospy.spin()
+        
+    cv2.destroyAllWindows()
 
 if __name__ == '__main__':
     try:

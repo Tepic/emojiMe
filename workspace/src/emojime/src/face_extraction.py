@@ -55,6 +55,8 @@ def extract_faces(frame):
         face_encodings = face_recognition.face_encodings(rgb_small_frame, face_locations)
 
         # Publish the results
+        to_publish = 0
+        message_imageArray.ImageArray = []
         for (top, right, bottom, left) in face_locations:
             face_frames = frame
             # Scale back up face locations since the frame we detected in was scaled to 1/4 size
@@ -72,7 +74,9 @@ def extract_faces(frame):
             # print(face_frames.shape) # Output: (480, 640, 3)
             msg_frame = CvBridge().cv2_to_imgmsg(face_frames, encoding="passthrough")
             message_imageArray.ImageArray.append(msg_frame)
-            face_publisher.publish(msg_frame)  # <--- change here type
+            to_publish = 1
+        if to_publish==1:
+            face_publisher.publish(message_imageArray)
 
     process_this_frame = process_this_frame+1
 
