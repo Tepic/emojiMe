@@ -10,6 +10,12 @@ from rospy.numpy_msg import numpy_msg
 from cv_bridge import CvBridge, CvBridgeError
 import time
 
+# source: https://thecodacus.com/ip-webcam-opencv-wireless-camera/
+import numpy as np
+import urllib
+# change IP
+url='http://192.168.0.14:1712/shot.jpg?rnd=703211'
+
 # This is a demo of running face recognition on live video from your webcam. It's a little more complicated than the
 # other example, but it includes some basic performance tweaks to make things run a lot faster:
 #   1. Process each video frame at 1/4 resolution (though still display it at full resolution)
@@ -22,7 +28,7 @@ import time
 
 def main():
     # Get a reference to webcam #0 (the default one)
-    video_capture = cv2.VideoCapture(2)
+    #video_capture = cv2.VideoCapture(2)
 
     # Initialize some variables
     face_locations = []
@@ -34,7 +40,10 @@ def main():
 
     while True and not rospy.is_shutdown():
         # Grab a single frame of video
-        ret, frame = video_capture.read()
+        #ret, frame = video_capture.read()
+        imgResp=urllib.urlopen(url)
+        imgNp=np.array(bytearray(imgResp.read()),dtype=np.uint8)
+        frame=cv2.imdecode(imgNp,-1)
         frame = cv2.flip( frame, 1 )
 
         # Resize frame of video to 1/4 size for faster face recognition processing
@@ -44,10 +53,11 @@ def main():
         rgb_small_frame = small_frame[:, :, ::-1]
        
         # Display the live image
-        cv2.imshow('Live video', frame)
+        img = cv2.resize(frame, (640, 480))
+        cv2.imshow('Live video', img)
 
         # print(face_frames.shape) # Output: (480, 640, 3)
-        msg_frame = CvBridge().cv2_to_imgmsg(frame, encoding="passthrough")
+        msg_frame = CvBridge().cv2_to_imgmsg(frame, encoding="passthrough")   
         face_publisher.publish(msg_frame)
         
         # Hit 'q' on the keyboard to quit!

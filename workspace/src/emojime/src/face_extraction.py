@@ -36,7 +36,7 @@ def extract_faces(frame):
     #message_imageArray.ImageArray = frame
 
     # Only process every other frame of video to save time
-    if process_this_frame%(25*2)==0:
+    if process_this_frame%(25*1)==0:
         process_this_frame = 1 
 
         # Initialize some variables
