@@ -1,0 +1,4 @@
+<launch>
+	<node pkg="emojime" type="face_extraction.py" name="face_extraction" output="screen">
+	</node>
+</launch>

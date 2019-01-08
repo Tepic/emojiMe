@@ -1,0 +1,8 @@
+prefix=/home/tepic/Documents/Cloud/NextCloud/_M21/Multimodal Interaction for Ubiquitous Computers/[06] Git-Codes/emojiMe/workspace/install
+
+Name: emojime
+Description: Description of emojime
+Version: 0.0.0
+Cflags: -I/home/tepic/Documents/Cloud/NextCloud/_M21/Multimodal Interaction for Ubiquitous Computers/[06] Git-Codes/emojiMe/workspace/install/include
+Libs: -L/home/tepic/Documents/Cloud/NextCloud/_M21/Multimodal Interaction for Ubiquitous Computers/[06] Git-Codes/emojiMe/workspace/install/lib 
+Requires: message_runtime

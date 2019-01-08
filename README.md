@@ -18,7 +18,6 @@ $ roslaunch emojime launch_emotion_extraction.launch  # terminal 3
 ```
 
 rostensorflow
-=====================
 
 - Install TensorFlow (see [tensor flow install guide](https://www.tensorflow.org/install/install_linux))
 - Install ROS (see http://wiki.ros.org)
@@ -61,3 +60,5 @@ $ source ~/tensorflow/bin/activate
 $ python image_recognition.py image:=/cv_camera/image_raw
 $ rostopic echo /result
 ```
+=======
+>>>>>>> ccb3c4ee094d93f874049085b4a9f5cd66043202
