@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/home/tepic/Documents/Cloud/NextCloud/_M21/Multimodal Interaction for Ubiquitous Computers/[06] Git-Codes/emojiMe/workspace/src"
+CMAKE_SOURCE_DIR = /home/milan/Documents/Tepic/Git/emojiMe/workspace/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/home/tepic/Documents/Cloud/NextCloud/_M21/Multimodal Interaction for Ubiquitous Computers/[06] Git-Codes/emojiMe/workspace/build"
+CMAKE_BINARY_DIR = /home/milan/Documents/Tepic/Git/emojiMe/workspace/build
 
 # Utility rule file for download_extra_data.
 
@@ -67,6 +67,6 @@ CMakeFiles/download_extra_data.dir/clean:
 .PHONY : CMakeFiles/download_extra_data.dir/clean
 
 CMakeFiles/download_extra_data.dir/depend:
-	cd "/home/tepic/Documents/Cloud/NextCloud/_M21/Multimodal Interaction for Ubiquitous Computers/[06] Git-Codes/emojiMe/workspace/build" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/home/tepic/Documents/Cloud/NextCloud/_M21/Multimodal Interaction for Ubiquitous Computers/[06] Git-Codes/emojiMe/workspace/src" "/home/tepic/Documents/Cloud/NextCloud/_M21/Multimodal Interaction for Ubiquitous Computers/[06] Git-Codes/emojiMe/workspace/src" "/home/tepic/Documents/Cloud/NextCloud/_M21/Multimodal Interaction for Ubiquitous Computers/[06] Git-Codes/emojiMe/workspace/build" "/home/tepic/Documents/Cloud/NextCloud/_M21/Multimodal Interaction for Ubiquitous Computers/[06] Git-Codes/emojiMe/workspace/build" "/home/tepic/Documents/Cloud/NextCloud/_M21/Multimodal Interaction for Ubiquitous Computers/[06] Git-Codes/emojiMe/workspace/build/CMakeFiles/download_extra_data.dir/DependInfo.cmake" --color=$(COLOR)
+	cd /home/milan/Documents/Tepic/Git/emojiMe/workspace/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/milan/Documents/Tepic/Git/emojiMe/workspace/src /home/milan/Documents/Tepic/Git/emojiMe/workspace/src /home/milan/Documents/Tepic/Git/emojiMe/workspace/build /home/milan/Documents/Tepic/Git/emojiMe/workspace/build /home/milan/Documents/Tepic/Git/emojiMe/workspace/build/CMakeFiles/download_extra_data.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/download_extra_data.dir/depend
 

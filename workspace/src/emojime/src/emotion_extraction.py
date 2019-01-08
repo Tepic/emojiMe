@@ -13,13 +13,21 @@ import time
 # import messages
 from messages.msg import ImageArray
 
+#detected_faces_previously = 0
+
 def callback_faces(data):
+    #global detected_faces_previously
     elements = range(len(data.ImageArray))
 
+    #for window in range(detected_faces_previously,1,-1):
+    #   cv2.destroyWindow('Detected face '+str(window))
+
+    #detected_faces_previously = 0
     for counter in elements:
         face = data.ImageArray[counter] # <-- change to display all faces ! ! !
         frame = CvBridge().imgmsg_to_cv2(face)
         #encoding is correct - CHECKED
+        #detected_faces_previously = detected_faces_previously+1
         cv2.imshow('Detected face '+str(counter+1), frame)
         #imshow works only if waitKey is used after it\
         #otherwise it won't show the image

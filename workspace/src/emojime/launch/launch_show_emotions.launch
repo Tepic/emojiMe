@@ -1,0 +1,4 @@
+<launch>
+	<node pkg="emojime" type="show_emotions.py" name="show_emotions" output="screen">
+	</node>
+</launch>

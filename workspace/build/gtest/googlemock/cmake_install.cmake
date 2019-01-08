@@ -2,7 +2,7 @@
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/tepic/Documents/Cloud/NextCloud/_M21/Multimodal Interaction for Ubiquitous Computers/[06] Git-Codes/emojiMe/workspace/install")
+  set(CMAKE_INSTALL_PREFIX "/home/milan/Documents/Tepic/Git/emojiMe/workspace/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -39,7 +39,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/tepic/Documents/Cloud/NextCloud/_M21/Multimodal Interaction for Ubiquitous Computers/[06] Git-Codes/emojiMe/workspace/build/gtest/googlemock/gtest/cmake_install.cmake")
+  include("/home/milan/Documents/Tepic/Git/emojiMe/workspace/build/gtest/googlemock/gtest/cmake_install.cmake")
 
 endif()
 

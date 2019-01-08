@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/home/tepic/Documents/Cloud/NextCloud/_M21/Multimodal Interaction for Ubiquitous Computers/[06] Git-Codes/emojiMe/workspace/src"
+CMAKE_SOURCE_DIR = /home/milan/Documents/Tepic/Git/emojiMe/workspace/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/home/tepic/Documents/Cloud/NextCloud/_M21/Multimodal Interaction for Ubiquitous Computers/[06] Git-Codes/emojiMe/workspace/build"
+CMAKE_BINARY_DIR = /home/milan/Documents/Tepic/Git/emojiMe/workspace/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -68,6 +68,38 @@ install/strip/fast: preinstall/fast
 	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
 .PHONY : install/strip/fast
 
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+.PHONY : edit_cache
+
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
+
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+
+.PHONY : list_install_components/fast
+
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+
+.PHONY : test/fast
+
 # Special rule for the target install/local
 install/local: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
@@ -79,6 +111,17 @@ install/local/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
 	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
 .PHONY : install/local/fast
+
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
+
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
+
+.PHONY : rebuild_cache/fast
 
 # Special rule for the target install
 install: preinstall
@@ -92,59 +135,16 @@ install/fast: preinstall/fast
 	/usr/bin/cmake -P cmake_install.cmake
 .PHONY : install/fast
 
-# Special rule for the target list_install_components
-list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
-.PHONY : list_install_components
-
-# Special rule for the target list_install_components
-list_install_components/fast: list_install_components
-
-.PHONY : list_install_components/fast
-
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
-
-# Special rule for the target test
-test:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
-	/usr/bin/ctest --force-new-ctest-process $(ARGS)
-.PHONY : test
-
-# Special rule for the target test
-test/fast: test
-
-.PHONY : test/fast
-
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
-
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
-
-.PHONY : rebuild_cache/fast
-
 # The main all target
 all: cmake_check_build_system
-	cd "/home/tepic/Documents/Cloud/NextCloud/_M21/Multimodal Interaction for Ubiquitous Computers/[06] Git-Codes/emojiMe/workspace/build" && $(CMAKE_COMMAND) -E cmake_progress_start "/home/tepic/Documents/Cloud/NextCloud/_M21/Multimodal Interaction for Ubiquitous Computers/[06] Git-Codes/emojiMe/workspace/build/CMakeFiles" "/home/tepic/Documents/Cloud/NextCloud/_M21/Multimodal Interaction for Ubiquitous Computers/[06] Git-Codes/emojiMe/workspace/build/emojime/CMakeFiles/progress.marks"
-	cd "/home/tepic/Documents/Cloud/NextCloud/_M21/Multimodal Interaction for Ubiquitous Computers/[06] Git-Codes/emojiMe/workspace/build" && $(MAKE) -f CMakeFiles/Makefile2 emojime/all
-	$(CMAKE_COMMAND) -E cmake_progress_start "/home/tepic/Documents/Cloud/NextCloud/_M21/Multimodal Interaction for Ubiquitous Computers/[06] Git-Codes/emojiMe/workspace/build/CMakeFiles" 0
+	cd /home/milan/Documents/Tepic/Git/emojiMe/workspace/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/milan/Documents/Tepic/Git/emojiMe/workspace/build/CMakeFiles /home/milan/Documents/Tepic/Git/emojiMe/workspace/build/emojime/CMakeFiles/progress.marks
+	cd /home/milan/Documents/Tepic/Git/emojiMe/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 emojime/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/milan/Documents/Tepic/Git/emojiMe/workspace/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd "/home/tepic/Documents/Cloud/NextCloud/_M21/Multimodal Interaction for Ubiquitous Computers/[06] Git-Codes/emojiMe/workspace/build" && $(MAKE) -f CMakeFiles/Makefile2 emojime/clean
+	cd /home/milan/Documents/Tepic/Git/emojiMe/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 emojime/clean
 .PHONY : clean
 
 # The main clean target
@@ -154,438 +154,18 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd "/home/tepic/Documents/Cloud/NextCloud/_M21/Multimodal Interaction for Ubiquitous Computers/[06] Git-Codes/emojiMe/workspace/build" && $(MAKE) -f CMakeFiles/Makefile2 emojime/preinstall
+	cd /home/milan/Documents/Tepic/Git/emojiMe/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 emojime/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd "/home/tepic/Documents/Cloud/NextCloud/_M21/Multimodal Interaction for Ubiquitous Computers/[06] Git-Codes/emojiMe/workspace/build" && $(MAKE) -f CMakeFiles/Makefile2 emojime/preinstall
+	cd /home/milan/Documents/Tepic/Git/emojiMe/workspace/build && $(MAKE) -f CMakeFiles/Makefile2 emojime/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd "/home/tepic/Documents/Cloud/NextCloud/_M21/Multimodal Interaction for Ubiquitous Computers/[06] Git-Codes/emojiMe/workspace/build" && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/milan/Documents/Tepic/Git/emojiMe/workspace/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
-
-# Convenience name for target.
-emojime/CMakeFiles/emojime_generate_messages_py.dir/rule:
-	cd "/home/tepic/Documents/Cloud/NextCloud/_M21/Multimodal Interaction for Ubiquitous Computers/[06] Git-Codes/emojiMe/workspace/build" && $(MAKE) -f CMakeFiles/Makefile2 emojime/CMakeFiles/emojime_generate_messages_py.dir/rule
-.PHONY : emojime/CMakeFiles/emojime_generate_messages_py.dir/rule
-
-# Convenience name for target.
-emojime_generate_messages_py: emojime/CMakeFiles/emojime_generate_messages_py.dir/rule
-
-.PHONY : emojime_generate_messages_py
-
-# fast build rule for target.
-emojime_generate_messages_py/fast:
-	cd "/home/tepic/Documents/Cloud/NextCloud/_M21/Multimodal Interaction for Ubiquitous Computers/[06] Git-Codes/emojiMe/workspace/build" && $(MAKE) -f emojime/CMakeFiles/emojime_generate_messages_py.dir/build.make emojime/CMakeFiles/emojime_generate_messages_py.dir/build
-.PHONY : emojime_generate_messages_py/fast
-
-# Convenience name for target.
-emojime/CMakeFiles/emojime_generate_messages_nodejs.dir/rule:
-	cd "/home/tepic/Documents/Cloud/NextCloud/_M21/Multimodal Interaction for Ubiquitous Computers/[06] Git-Codes/emojiMe/workspace/build" && $(MAKE) -f CMakeFiles/Makefile2 emojime/CMakeFiles/emojime_generate_messages_nodejs.dir/rule
-.PHONY : emojime/CMakeFiles/emojime_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-emojime_generate_messages_nodejs: emojime/CMakeFiles/emojime_generate_messages_nodejs.dir/rule
-
-.PHONY : emojime_generate_messages_nodejs
-
-# fast build rule for target.
-emojime_generate_messages_nodejs/fast:
-	cd "/home/tepic/Documents/Cloud/NextCloud/_M21/Multimodal Interaction for Ubiquitous Computers/[06] Git-Codes/emojiMe/workspace/build" && $(MAKE) -f emojime/CMakeFiles/emojime_generate_messages_nodejs.dir/build.make emojime/CMakeFiles/emojime_generate_messages_nodejs.dir/build
-.PHONY : emojime_generate_messages_nodejs/fast
-
-# Convenience name for target.
-emojime/CMakeFiles/emojime_generate_messages_lisp.dir/rule:
-	cd "/home/tepic/Documents/Cloud/NextCloud/_M21/Multimodal Interaction for Ubiquitous Computers/[06] Git-Codes/emojiMe/workspace/build" && $(MAKE) -f CMakeFiles/Makefile2 emojime/CMakeFiles/emojime_generate_messages_lisp.dir/rule
-.PHONY : emojime/CMakeFiles/emojime_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-emojime_generate_messages_lisp: emojime/CMakeFiles/emojime_generate_messages_lisp.dir/rule
-
-.PHONY : emojime_generate_messages_lisp
-
-# fast build rule for target.
-emojime_generate_messages_lisp/fast:
-	cd "/home/tepic/Documents/Cloud/NextCloud/_M21/Multimodal Interaction for Ubiquitous Computers/[06] Git-Codes/emojiMe/workspace/build" && $(MAKE) -f emojime/CMakeFiles/emojime_generate_messages_lisp.dir/build.make emojime/CMakeFiles/emojime_generate_messages_lisp.dir/build
-.PHONY : emojime_generate_messages_lisp/fast
-
-# Convenience name for target.
-emojime/CMakeFiles/emojime_gencpp.dir/rule:
-	cd "/home/tepic/Documents/Cloud/NextCloud/_M21/Multimodal Interaction for Ubiquitous Computers/[06] Git-Codes/emojiMe/workspace/build" && $(MAKE) -f CMakeFiles/Makefile2 emojime/CMakeFiles/emojime_gencpp.dir/rule
-.PHONY : emojime/CMakeFiles/emojime_gencpp.dir/rule
-
-# Convenience name for target.
-emojime_gencpp: emojime/CMakeFiles/emojime_gencpp.dir/rule
-
-.PHONY : emojime_gencpp
-
-# fast build rule for target.
-emojime_gencpp/fast:
-	cd "/home/tepic/Documents/Cloud/NextCloud/_M21/Multimodal Interaction for Ubiquitous Computers/[06] Git-Codes/emojiMe/workspace/build" && $(MAKE) -f emojime/CMakeFiles/emojime_gencpp.dir/build.make emojime/CMakeFiles/emojime_gencpp.dir/build
-.PHONY : emojime_gencpp/fast
-
-# Convenience name for target.
-emojime/CMakeFiles/emojime_generate_messages_cpp.dir/rule:
-	cd "/home/tepic/Documents/Cloud/NextCloud/_M21/Multimodal Interaction for Ubiquitous Computers/[06] Git-Codes/emojiMe/workspace/build" && $(MAKE) -f CMakeFiles/Makefile2 emojime/CMakeFiles/emojime_generate_messages_cpp.dir/rule
-.PHONY : emojime/CMakeFiles/emojime_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-emojime_generate_messages_cpp: emojime/CMakeFiles/emojime_generate_messages_cpp.dir/rule
-
-.PHONY : emojime_generate_messages_cpp
-
-# fast build rule for target.
-emojime_generate_messages_cpp/fast:
-	cd "/home/tepic/Documents/Cloud/NextCloud/_M21/Multimodal Interaction for Ubiquitous Computers/[06] Git-Codes/emojiMe/workspace/build" && $(MAKE) -f emojime/CMakeFiles/emojime_generate_messages_cpp.dir/build.make emojime/CMakeFiles/emojime_generate_messages_cpp.dir/build
-.PHONY : emojime_generate_messages_cpp/fast
-
-# Convenience name for target.
-emojime/CMakeFiles/std_msgs_generate_messages_py.dir/rule:
-	cd "/home/tepic/Documents/Cloud/NextCloud/_M21/Multimodal Interaction for Ubiquitous Computers/[06] Git-Codes/emojiMe/workspace/build" && $(MAKE) -f CMakeFiles/Makefile2 emojime/CMakeFiles/std_msgs_generate_messages_py.dir/rule
-.PHONY : emojime/CMakeFiles/std_msgs_generate_messages_py.dir/rule
-
-# Convenience name for target.
-std_msgs_generate_messages_py: emojime/CMakeFiles/std_msgs_generate_messages_py.dir/rule
-
-.PHONY : std_msgs_generate_messages_py
-
-# fast build rule for target.
-std_msgs_generate_messages_py/fast:
-	cd "/home/tepic/Documents/Cloud/NextCloud/_M21/Multimodal Interaction for Ubiquitous Computers/[06] Git-Codes/emojiMe/workspace/build" && $(MAKE) -f emojime/CMakeFiles/std_msgs_generate_messages_py.dir/build.make emojime/CMakeFiles/std_msgs_generate_messages_py.dir/build
-.PHONY : std_msgs_generate_messages_py/fast
-
-# Convenience name for target.
-emojime/CMakeFiles/emojime_genlisp.dir/rule:
-	cd "/home/tepic/Documents/Cloud/NextCloud/_M21/Multimodal Interaction for Ubiquitous Computers/[06] Git-Codes/emojiMe/workspace/build" && $(MAKE) -f CMakeFiles/Makefile2 emojime/CMakeFiles/emojime_genlisp.dir/rule
-.PHONY : emojime/CMakeFiles/emojime_genlisp.dir/rule
-
-# Convenience name for target.
-emojime_genlisp: emojime/CMakeFiles/emojime_genlisp.dir/rule
-
-.PHONY : emojime_genlisp
-
-# fast build rule for target.
-emojime_genlisp/fast:
-	cd "/home/tepic/Documents/Cloud/NextCloud/_M21/Multimodal Interaction for Ubiquitous Computers/[06] Git-Codes/emojiMe/workspace/build" && $(MAKE) -f emojime/CMakeFiles/emojime_genlisp.dir/build.make emojime/CMakeFiles/emojime_genlisp.dir/build
-.PHONY : emojime_genlisp/fast
-
-# Convenience name for target.
-emojime/CMakeFiles/emojime_geneus.dir/rule:
-	cd "/home/tepic/Documents/Cloud/NextCloud/_M21/Multimodal Interaction for Ubiquitous Computers/[06] Git-Codes/emojiMe/workspace/build" && $(MAKE) -f CMakeFiles/Makefile2 emojime/CMakeFiles/emojime_geneus.dir/rule
-.PHONY : emojime/CMakeFiles/emojime_geneus.dir/rule
-
-# Convenience name for target.
-emojime_geneus: emojime/CMakeFiles/emojime_geneus.dir/rule
-
-.PHONY : emojime_geneus
-
-# fast build rule for target.
-emojime_geneus/fast:
-	cd "/home/tepic/Documents/Cloud/NextCloud/_M21/Multimodal Interaction for Ubiquitous Computers/[06] Git-Codes/emojiMe/workspace/build" && $(MAKE) -f emojime/CMakeFiles/emojime_geneus.dir/build.make emojime/CMakeFiles/emojime_geneus.dir/build
-.PHONY : emojime_geneus/fast
-
-# Convenience name for target.
-emojime/CMakeFiles/emojime_generate_messages_eus.dir/rule:
-	cd "/home/tepic/Documents/Cloud/NextCloud/_M21/Multimodal Interaction for Ubiquitous Computers/[06] Git-Codes/emojiMe/workspace/build" && $(MAKE) -f CMakeFiles/Makefile2 emojime/CMakeFiles/emojime_generate_messages_eus.dir/rule
-.PHONY : emojime/CMakeFiles/emojime_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-emojime_generate_messages_eus: emojime/CMakeFiles/emojime_generate_messages_eus.dir/rule
-
-.PHONY : emojime_generate_messages_eus
-
-# fast build rule for target.
-emojime_generate_messages_eus/fast:
-	cd "/home/tepic/Documents/Cloud/NextCloud/_M21/Multimodal Interaction for Ubiquitous Computers/[06] Git-Codes/emojiMe/workspace/build" && $(MAKE) -f emojime/CMakeFiles/emojime_generate_messages_eus.dir/build.make emojime/CMakeFiles/emojime_generate_messages_eus.dir/build
-.PHONY : emojime_generate_messages_eus/fast
-
-# Convenience name for target.
-emojime/CMakeFiles/std_msgs_generate_messages_eus.dir/rule:
-	cd "/home/tepic/Documents/Cloud/NextCloud/_M21/Multimodal Interaction for Ubiquitous Computers/[06] Git-Codes/emojiMe/workspace/build" && $(MAKE) -f CMakeFiles/Makefile2 emojime/CMakeFiles/std_msgs_generate_messages_eus.dir/rule
-.PHONY : emojime/CMakeFiles/std_msgs_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-std_msgs_generate_messages_eus: emojime/CMakeFiles/std_msgs_generate_messages_eus.dir/rule
-
-.PHONY : std_msgs_generate_messages_eus
-
-# fast build rule for target.
-std_msgs_generate_messages_eus/fast:
-	cd "/home/tepic/Documents/Cloud/NextCloud/_M21/Multimodal Interaction for Ubiquitous Computers/[06] Git-Codes/emojiMe/workspace/build" && $(MAKE) -f emojime/CMakeFiles/std_msgs_generate_messages_eus.dir/build.make emojime/CMakeFiles/std_msgs_generate_messages_eus.dir/build
-.PHONY : std_msgs_generate_messages_eus/fast
-
-# Convenience name for target.
-emojime/CMakeFiles/_catkin_empty_exported_target.dir/rule:
-	cd "/home/tepic/Documents/Cloud/NextCloud/_M21/Multimodal Interaction for Ubiquitous Computers/[06] Git-Codes/emojiMe/workspace/build" && $(MAKE) -f CMakeFiles/Makefile2 emojime/CMakeFiles/_catkin_empty_exported_target.dir/rule
-.PHONY : emojime/CMakeFiles/_catkin_empty_exported_target.dir/rule
-
-# Convenience name for target.
-_catkin_empty_exported_target: emojime/CMakeFiles/_catkin_empty_exported_target.dir/rule
-
-.PHONY : _catkin_empty_exported_target
-
-# fast build rule for target.
-_catkin_empty_exported_target/fast:
-	cd "/home/tepic/Documents/Cloud/NextCloud/_M21/Multimodal Interaction for Ubiquitous Computers/[06] Git-Codes/emojiMe/workspace/build" && $(MAKE) -f emojime/CMakeFiles/_catkin_empty_exported_target.dir/build.make emojime/CMakeFiles/_catkin_empty_exported_target.dir/build
-.PHONY : _catkin_empty_exported_target/fast
-
-# Convenience name for target.
-emojime/CMakeFiles/_emojime_generate_messages_check_deps_ImageArray.dir/rule:
-	cd "/home/tepic/Documents/Cloud/NextCloud/_M21/Multimodal Interaction for Ubiquitous Computers/[06] Git-Codes/emojiMe/workspace/build" && $(MAKE) -f CMakeFiles/Makefile2 emojime/CMakeFiles/_emojime_generate_messages_check_deps_ImageArray.dir/rule
-.PHONY : emojime/CMakeFiles/_emojime_generate_messages_check_deps_ImageArray.dir/rule
-
-# Convenience name for target.
-_emojime_generate_messages_check_deps_ImageArray: emojime/CMakeFiles/_emojime_generate_messages_check_deps_ImageArray.dir/rule
-
-.PHONY : _emojime_generate_messages_check_deps_ImageArray
-
-# fast build rule for target.
-_emojime_generate_messages_check_deps_ImageArray/fast:
-	cd "/home/tepic/Documents/Cloud/NextCloud/_M21/Multimodal Interaction for Ubiquitous Computers/[06] Git-Codes/emojiMe/workspace/build" && $(MAKE) -f emojime/CMakeFiles/_emojime_generate_messages_check_deps_ImageArray.dir/build.make emojime/CMakeFiles/_emojime_generate_messages_check_deps_ImageArray.dir/build
-.PHONY : _emojime_generate_messages_check_deps_ImageArray/fast
-
-# Convenience name for target.
-emojime/CMakeFiles/geometry_msgs_generate_messages_eus.dir/rule:
-	cd "/home/tepic/Documents/Cloud/NextCloud/_M21/Multimodal Interaction for Ubiquitous Computers/[06] Git-Codes/emojiMe/workspace/build" && $(MAKE) -f CMakeFiles/Makefile2 emojime/CMakeFiles/geometry_msgs_generate_messages_eus.dir/rule
-.PHONY : emojime/CMakeFiles/geometry_msgs_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-geometry_msgs_generate_messages_eus: emojime/CMakeFiles/geometry_msgs_generate_messages_eus.dir/rule
-
-.PHONY : geometry_msgs_generate_messages_eus
-
-# fast build rule for target.
-geometry_msgs_generate_messages_eus/fast:
-	cd "/home/tepic/Documents/Cloud/NextCloud/_M21/Multimodal Interaction for Ubiquitous Computers/[06] Git-Codes/emojiMe/workspace/build" && $(MAKE) -f emojime/CMakeFiles/geometry_msgs_generate_messages_eus.dir/build.make emojime/CMakeFiles/geometry_msgs_generate_messages_eus.dir/build
-.PHONY : geometry_msgs_generate_messages_eus/fast
-
-# Convenience name for target.
-emojime/CMakeFiles/emojime_generate_messages.dir/rule:
-	cd "/home/tepic/Documents/Cloud/NextCloud/_M21/Multimodal Interaction for Ubiquitous Computers/[06] Git-Codes/emojiMe/workspace/build" && $(MAKE) -f CMakeFiles/Makefile2 emojime/CMakeFiles/emojime_generate_messages.dir/rule
-.PHONY : emojime/CMakeFiles/emojime_generate_messages.dir/rule
-
-# Convenience name for target.
-emojime_generate_messages: emojime/CMakeFiles/emojime_generate_messages.dir/rule
-
-.PHONY : emojime_generate_messages
-
-# fast build rule for target.
-emojime_generate_messages/fast:
-	cd "/home/tepic/Documents/Cloud/NextCloud/_M21/Multimodal Interaction for Ubiquitous Computers/[06] Git-Codes/emojiMe/workspace/build" && $(MAKE) -f emojime/CMakeFiles/emojime_generate_messages.dir/build.make emojime/CMakeFiles/emojime_generate_messages.dir/build
-.PHONY : emojime_generate_messages/fast
-
-# Convenience name for target.
-emojime/CMakeFiles/std_msgs_generate_messages_nodejs.dir/rule:
-	cd "/home/tepic/Documents/Cloud/NextCloud/_M21/Multimodal Interaction for Ubiquitous Computers/[06] Git-Codes/emojiMe/workspace/build" && $(MAKE) -f CMakeFiles/Makefile2 emojime/CMakeFiles/std_msgs_generate_messages_nodejs.dir/rule
-.PHONY : emojime/CMakeFiles/std_msgs_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-std_msgs_generate_messages_nodejs: emojime/CMakeFiles/std_msgs_generate_messages_nodejs.dir/rule
-
-.PHONY : std_msgs_generate_messages_nodejs
-
-# fast build rule for target.
-std_msgs_generate_messages_nodejs/fast:
-	cd "/home/tepic/Documents/Cloud/NextCloud/_M21/Multimodal Interaction for Ubiquitous Computers/[06] Git-Codes/emojiMe/workspace/build" && $(MAKE) -f emojime/CMakeFiles/std_msgs_generate_messages_nodejs.dir/build.make emojime/CMakeFiles/std_msgs_generate_messages_nodejs.dir/build
-.PHONY : std_msgs_generate_messages_nodejs/fast
-
-# Convenience name for target.
-emojime/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule:
-	cd "/home/tepic/Documents/Cloud/NextCloud/_M21/Multimodal Interaction for Ubiquitous Computers/[06] Git-Codes/emojiMe/workspace/build" && $(MAKE) -f CMakeFiles/Makefile2 emojime/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
-.PHONY : emojime/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-std_msgs_generate_messages_cpp: emojime/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
-
-.PHONY : std_msgs_generate_messages_cpp
-
-# fast build rule for target.
-std_msgs_generate_messages_cpp/fast:
-	cd "/home/tepic/Documents/Cloud/NextCloud/_M21/Multimodal Interaction for Ubiquitous Computers/[06] Git-Codes/emojiMe/workspace/build" && $(MAKE) -f emojime/CMakeFiles/std_msgs_generate_messages_cpp.dir/build.make emojime/CMakeFiles/std_msgs_generate_messages_cpp.dir/build
-.PHONY : std_msgs_generate_messages_cpp/fast
-
-# Convenience name for target.
-emojime/CMakeFiles/emojime_genpy.dir/rule:
-	cd "/home/tepic/Documents/Cloud/NextCloud/_M21/Multimodal Interaction for Ubiquitous Computers/[06] Git-Codes/emojiMe/workspace/build" && $(MAKE) -f CMakeFiles/Makefile2 emojime/CMakeFiles/emojime_genpy.dir/rule
-.PHONY : emojime/CMakeFiles/emojime_genpy.dir/rule
-
-# Convenience name for target.
-emojime_genpy: emojime/CMakeFiles/emojime_genpy.dir/rule
-
-.PHONY : emojime_genpy
-
-# fast build rule for target.
-emojime_genpy/fast:
-	cd "/home/tepic/Documents/Cloud/NextCloud/_M21/Multimodal Interaction for Ubiquitous Computers/[06] Git-Codes/emojiMe/workspace/build" && $(MAKE) -f emojime/CMakeFiles/emojime_genpy.dir/build.make emojime/CMakeFiles/emojime_genpy.dir/build
-.PHONY : emojime_genpy/fast
-
-# Convenience name for target.
-emojime/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/rule:
-	cd "/home/tepic/Documents/Cloud/NextCloud/_M21/Multimodal Interaction for Ubiquitous Computers/[06] Git-Codes/emojiMe/workspace/build" && $(MAKE) -f CMakeFiles/Makefile2 emojime/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/rule
-.PHONY : emojime/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-geometry_msgs_generate_messages_nodejs: emojime/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/rule
-
-.PHONY : geometry_msgs_generate_messages_nodejs
-
-# fast build rule for target.
-geometry_msgs_generate_messages_nodejs/fast:
-	cd "/home/tepic/Documents/Cloud/NextCloud/_M21/Multimodal Interaction for Ubiquitous Computers/[06] Git-Codes/emojiMe/workspace/build" && $(MAKE) -f emojime/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/build.make emojime/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/build
-.PHONY : geometry_msgs_generate_messages_nodejs/fast
-
-# Convenience name for target.
-emojime/CMakeFiles/sensor_msgs_generate_messages_eus.dir/rule:
-	cd "/home/tepic/Documents/Cloud/NextCloud/_M21/Multimodal Interaction for Ubiquitous Computers/[06] Git-Codes/emojiMe/workspace/build" && $(MAKE) -f CMakeFiles/Makefile2 emojime/CMakeFiles/sensor_msgs_generate_messages_eus.dir/rule
-.PHONY : emojime/CMakeFiles/sensor_msgs_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-sensor_msgs_generate_messages_eus: emojime/CMakeFiles/sensor_msgs_generate_messages_eus.dir/rule
-
-.PHONY : sensor_msgs_generate_messages_eus
-
-# fast build rule for target.
-sensor_msgs_generate_messages_eus/fast:
-	cd "/home/tepic/Documents/Cloud/NextCloud/_M21/Multimodal Interaction for Ubiquitous Computers/[06] Git-Codes/emojiMe/workspace/build" && $(MAKE) -f emojime/CMakeFiles/sensor_msgs_generate_messages_eus.dir/build.make emojime/CMakeFiles/sensor_msgs_generate_messages_eus.dir/build
-.PHONY : sensor_msgs_generate_messages_eus/fast
-
-# Convenience name for target.
-emojime/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule:
-	cd "/home/tepic/Documents/Cloud/NextCloud/_M21/Multimodal Interaction for Ubiquitous Computers/[06] Git-Codes/emojiMe/workspace/build" && $(MAKE) -f CMakeFiles/Makefile2 emojime/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule
-.PHONY : emojime/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-std_msgs_generate_messages_lisp: emojime/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule
-
-.PHONY : std_msgs_generate_messages_lisp
-
-# fast build rule for target.
-std_msgs_generate_messages_lisp/fast:
-	cd "/home/tepic/Documents/Cloud/NextCloud/_M21/Multimodal Interaction for Ubiquitous Computers/[06] Git-Codes/emojiMe/workspace/build" && $(MAKE) -f emojime/CMakeFiles/std_msgs_generate_messages_lisp.dir/build.make emojime/CMakeFiles/std_msgs_generate_messages_lisp.dir/build
-.PHONY : std_msgs_generate_messages_lisp/fast
-
-# Convenience name for target.
-emojime/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/rule:
-	cd "/home/tepic/Documents/Cloud/NextCloud/_M21/Multimodal Interaction for Ubiquitous Computers/[06] Git-Codes/emojiMe/workspace/build" && $(MAKE) -f CMakeFiles/Makefile2 emojime/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/rule
-.PHONY : emojime/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-sensor_msgs_generate_messages_cpp: emojime/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/rule
-
-.PHONY : sensor_msgs_generate_messages_cpp
-
-# fast build rule for target.
-sensor_msgs_generate_messages_cpp/fast:
-	cd "/home/tepic/Documents/Cloud/NextCloud/_M21/Multimodal Interaction for Ubiquitous Computers/[06] Git-Codes/emojiMe/workspace/build" && $(MAKE) -f emojime/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/build.make emojime/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/build
-.PHONY : sensor_msgs_generate_messages_cpp/fast
-
-# Convenience name for target.
-emojime/CMakeFiles/emojime_gennodejs.dir/rule:
-	cd "/home/tepic/Documents/Cloud/NextCloud/_M21/Multimodal Interaction for Ubiquitous Computers/[06] Git-Codes/emojiMe/workspace/build" && $(MAKE) -f CMakeFiles/Makefile2 emojime/CMakeFiles/emojime_gennodejs.dir/rule
-.PHONY : emojime/CMakeFiles/emojime_gennodejs.dir/rule
-
-# Convenience name for target.
-emojime_gennodejs: emojime/CMakeFiles/emojime_gennodejs.dir/rule
-
-.PHONY : emojime_gennodejs
-
-# fast build rule for target.
-emojime_gennodejs/fast:
-	cd "/home/tepic/Documents/Cloud/NextCloud/_M21/Multimodal Interaction for Ubiquitous Computers/[06] Git-Codes/emojiMe/workspace/build" && $(MAKE) -f emojime/CMakeFiles/emojime_gennodejs.dir/build.make emojime/CMakeFiles/emojime_gennodejs.dir/build
-.PHONY : emojime_gennodejs/fast
-
-# Convenience name for target.
-emojime/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule:
-	cd "/home/tepic/Documents/Cloud/NextCloud/_M21/Multimodal Interaction for Ubiquitous Computers/[06] Git-Codes/emojiMe/workspace/build" && $(MAKE) -f CMakeFiles/Makefile2 emojime/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule
-.PHONY : emojime/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule
-
-# Convenience name for target.
-sensor_msgs_generate_messages_py: emojime/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule
-
-.PHONY : sensor_msgs_generate_messages_py
-
-# fast build rule for target.
-sensor_msgs_generate_messages_py/fast:
-	cd "/home/tepic/Documents/Cloud/NextCloud/_M21/Multimodal Interaction for Ubiquitous Computers/[06] Git-Codes/emojiMe/workspace/build" && $(MAKE) -f emojime/CMakeFiles/sensor_msgs_generate_messages_py.dir/build.make emojime/CMakeFiles/sensor_msgs_generate_messages_py.dir/build
-.PHONY : sensor_msgs_generate_messages_py/fast
-
-# Convenience name for target.
-emojime/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule:
-	cd "/home/tepic/Documents/Cloud/NextCloud/_M21/Multimodal Interaction for Ubiquitous Computers/[06] Git-Codes/emojiMe/workspace/build" && $(MAKE) -f CMakeFiles/Makefile2 emojime/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule
-.PHONY : emojime/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-geometry_msgs_generate_messages_lisp: emojime/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule
-
-.PHONY : geometry_msgs_generate_messages_lisp
-
-# fast build rule for target.
-geometry_msgs_generate_messages_lisp/fast:
-	cd "/home/tepic/Documents/Cloud/NextCloud/_M21/Multimodal Interaction for Ubiquitous Computers/[06] Git-Codes/emojiMe/workspace/build" && $(MAKE) -f emojime/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build.make emojime/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build
-.PHONY : geometry_msgs_generate_messages_lisp/fast
-
-# Convenience name for target.
-emojime/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/rule:
-	cd "/home/tepic/Documents/Cloud/NextCloud/_M21/Multimodal Interaction for Ubiquitous Computers/[06] Git-Codes/emojiMe/workspace/build" && $(MAKE) -f CMakeFiles/Makefile2 emojime/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/rule
-.PHONY : emojime/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-sensor_msgs_generate_messages_lisp: emojime/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/rule
-
-.PHONY : sensor_msgs_generate_messages_lisp
-
-# fast build rule for target.
-sensor_msgs_generate_messages_lisp/fast:
-	cd "/home/tepic/Documents/Cloud/NextCloud/_M21/Multimodal Interaction for Ubiquitous Computers/[06] Git-Codes/emojiMe/workspace/build" && $(MAKE) -f emojime/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/build.make emojime/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/build
-.PHONY : sensor_msgs_generate_messages_lisp/fast
-
-# Convenience name for target.
-emojime/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/rule:
-	cd "/home/tepic/Documents/Cloud/NextCloud/_M21/Multimodal Interaction for Ubiquitous Computers/[06] Git-Codes/emojiMe/workspace/build" && $(MAKE) -f CMakeFiles/Makefile2 emojime/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/rule
-.PHONY : emojime/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-sensor_msgs_generate_messages_nodejs: emojime/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/rule
-
-.PHONY : sensor_msgs_generate_messages_nodejs
-
-# fast build rule for target.
-sensor_msgs_generate_messages_nodejs/fast:
-	cd "/home/tepic/Documents/Cloud/NextCloud/_M21/Multimodal Interaction for Ubiquitous Computers/[06] Git-Codes/emojiMe/workspace/build" && $(MAKE) -f emojime/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/build.make emojime/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/build
-.PHONY : sensor_msgs_generate_messages_nodejs/fast
-
-# Convenience name for target.
-emojime/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule:
-	cd "/home/tepic/Documents/Cloud/NextCloud/_M21/Multimodal Interaction for Ubiquitous Computers/[06] Git-Codes/emojiMe/workspace/build" && $(MAKE) -f CMakeFiles/Makefile2 emojime/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule
-.PHONY : emojime/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-geometry_msgs_generate_messages_cpp: emojime/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule
-
-.PHONY : geometry_msgs_generate_messages_cpp
-
-# fast build rule for target.
-geometry_msgs_generate_messages_cpp/fast:
-	cd "/home/tepic/Documents/Cloud/NextCloud/_M21/Multimodal Interaction for Ubiquitous Computers/[06] Git-Codes/emojiMe/workspace/build" && $(MAKE) -f emojime/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build.make emojime/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build
-.PHONY : geometry_msgs_generate_messages_cpp/fast
-
-# Convenience name for target.
-emojime/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule:
-	cd "/home/tepic/Documents/Cloud/NextCloud/_M21/Multimodal Interaction for Ubiquitous Computers/[06] Git-Codes/emojiMe/workspace/build" && $(MAKE) -f CMakeFiles/Makefile2 emojime/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule
-.PHONY : emojime/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule
-
-# Convenience name for target.
-geometry_msgs_generate_messages_py: emojime/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule
-
-.PHONY : geometry_msgs_generate_messages_py
-
-# fast build rule for target.
-geometry_msgs_generate_messages_py/fast:
-	cd "/home/tepic/Documents/Cloud/NextCloud/_M21/Multimodal Interaction for Ubiquitous Computers/[06] Git-Codes/emojiMe/workspace/build" && $(MAKE) -f emojime/CMakeFiles/geometry_msgs_generate_messages_py.dir/build.make emojime/CMakeFiles/geometry_msgs_generate_messages_py.dir/build
-.PHONY : geometry_msgs_generate_messages_py/fast
 
 # Help Target
 help:
@@ -594,40 +174,12 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... install/strip"
-	@echo "... install/local"
-	@echo "... install"
-	@echo "... emojime_generate_messages_py"
-	@echo "... emojime_generate_messages_nodejs"
-	@echo "... emojime_generate_messages_lisp"
-	@echo "... emojime_gencpp"
-	@echo "... emojime_generate_messages_cpp"
-	@echo "... std_msgs_generate_messages_py"
-	@echo "... emojime_genlisp"
-	@echo "... emojime_geneus"
-	@echo "... emojime_generate_messages_eus"
-	@echo "... std_msgs_generate_messages_eus"
-	@echo "... _catkin_empty_exported_target"
-	@echo "... list_install_components"
-	@echo "... _emojime_generate_messages_check_deps_ImageArray"
-	@echo "... geometry_msgs_generate_messages_eus"
-	@echo "... emojime_generate_messages"
-	@echo "... std_msgs_generate_messages_nodejs"
-	@echo "... std_msgs_generate_messages_cpp"
 	@echo "... edit_cache"
-	@echo "... emojime_genpy"
-	@echo "... geometry_msgs_generate_messages_nodejs"
-	@echo "... sensor_msgs_generate_messages_eus"
-	@echo "... std_msgs_generate_messages_lisp"
-	@echo "... sensor_msgs_generate_messages_cpp"
-	@echo "... emojime_gennodejs"
-	@echo "... sensor_msgs_generate_messages_py"
+	@echo "... list_install_components"
 	@echo "... test"
-	@echo "... geometry_msgs_generate_messages_lisp"
+	@echo "... install/local"
 	@echo "... rebuild_cache"
-	@echo "... sensor_msgs_generate_messages_lisp"
-	@echo "... sensor_msgs_generate_messages_nodejs"
-	@echo "... geometry_msgs_generate_messages_cpp"
-	@echo "... geometry_msgs_generate_messages_py"
+	@echo "... install"
 .PHONY : help
 
 
@@ -639,6 +191,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd "/home/tepic/Documents/Cloud/NextCloud/_M21/Multimodal Interaction for Ubiquitous Computers/[06] Git-Codes/emojiMe/workspace/build" && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/milan/Documents/Tepic/Git/emojiMe/workspace/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 
