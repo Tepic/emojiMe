@@ -60,5 +60,3 @@ $ source ~/tensorflow/bin/activate
 $ python image_recognition.py image:=/cv_camera/image_raw
 $ rostopic echo /result
 ```
-=======
->>>>>>> ccb3c4ee094d93f874049085b4a9f5cd66043202
