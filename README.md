@@ -49,7 +49,8 @@ $ sudo apt install python-rosinstall python-rosinstall-generator python-wstool b
 In this work we have used python(2) version. In reference [1] they have used pip3, but we will use just a pip for executing the following command to install face_recognition library for python:
 
 ```
-$ pip3 install face_recognition
+$ sudo pip install face_recognition #environment error otherwise
+# $ pip3 install face_recognition
 ```
 According to [1]: If you are having trouble with installation, you can also try out a [pre-configured VM](https://medium.com/@ageitgey/try-deep-learning-in-python-now-with-a-fully-pre-configured-vm-1d97d4c3e9b).
 
@@ -66,6 +67,13 @@ $ sudo apt-get install python-pip python-dev python-virtualenv
 Furthermore, execute the following commands to install further dependencies -> go to Step 4 - Emotion recognition
 
 ### Step 4 - Emotion recognition [2]
+Firstly fo with Solution 1. If it does NOT work out in starting .launch files, repeat this step with Solution 2.
+
+*SOLUTION 1*
+```
+$ sudo pip install -r requirements.txt
+```
+*SOLUTION 2
 ```
 # in original repo they used python3
 # $ virtualenv -p python3 ./
@@ -73,6 +81,10 @@ $ virtualenv -p python ./
 
 $ source ./bin/activate
 $ pip install -r requirements.txt
+
+# If after this you get a following error:
+# ImportError: No module named sklearn.model_selection
+# repeat the solution 1 again (in a new terminal)
 ```
 ## Run it
 Finally, compile the code:
@@ -81,14 +93,18 @@ $ cd ~/../emojiMe/workspace/
 $ catkin_make
 ```
 
-Now, in order to use the code open 5 terminalsL
+Now, in order to use the code open 5 terminals:
+
 **Terminal 1**
+
 Start ROS
 ```
 # Terminal 1
 $ roscore
 ```
+
 **Terminal 2**
+
 Start camera. There are two cameras - webCAM (USB cam) and IP CAM.
 How to install IP CAM [here](https://thecodacus.com/ip-webcam-opencv-wireless-camera/)
 ```
@@ -96,7 +112,9 @@ How to install IP CAM [here](https://thecodacus.com/ip-webcam-opencv-wireless-ca
 $ cd ~/../emojiMe/workspace/src/emojime/src/
 $ python live_video.py
 ```
+
 **Terminal 3**
+
 Start algorithm to extract faces
 ```
 # Terminal 3
@@ -104,7 +122,9 @@ $ cd ~/../emojiMe/workspace/
 $ source devel/setup.bash
 $ roslaunch emojime launch_face_extraction.launch
 ```
+
 **Terminal 4**
+
 Start algorithm to extract emotions from images received as ImageVector over ROS pub/sub. This message is custom made.
 ```
 # Terminal 4
@@ -113,11 +133,13 @@ $ source devel/setup.bash
 $ roslaunch emojime launch_show_emotions.launch 
 # $ roslaunch emojime launch_emotion_extraction.launch
 ```
+
 **Terminal 5**
+
 Start algorithm to extract emotions from images received as ImageVector over ROS pub/sub. This message is custom made.
 ```
 # Terminal 5
-$ cd ~/../emojiMe/workspace/
+$ cd ~/../emojiMe/workspace/src/emojime/src/
 $ python display_emotions.py
 ```
 
