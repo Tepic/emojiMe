@@ -67,6 +67,13 @@ $ sudo apt-get install python-pip python-dev python-virtualenv
 Furthermore, execute the following commands to install further dependencies -> go to Step 4 - Emotion recognition
 
 ### Step 4 - Emotion recognition [2]
+Firstly fo with Solution 1. If it does NOT work out in starting .launch files, repeat this step with Solution 2.
+
+*SOLUTION 1*
+```
+$ sudo pip install -r requirements.txt
+```
+*SOLUTION 2
 ```
 # in original repo they used python3
 # $ virtualenv -p python3 ./
@@ -74,6 +81,10 @@ $ virtualenv -p python ./
 
 $ source ./bin/activate
 $ pip install -r requirements.txt
+
+# If after this you get a following error:
+# ImportError: No module named sklearn.model_selection
+# repeat the solution 1 again (in a new terminal)
 ```
 ## Run it
 Finally, compile the code:
