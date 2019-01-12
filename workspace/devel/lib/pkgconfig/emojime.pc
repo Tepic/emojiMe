@@ -1,0 +1,8 @@
+prefix=/home/tepic/Documents/tepic/Git/emojiMe/workspace/devel
+
+Name: emojime
+Description: Description of emojime
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/tepic/Documents/tepic/Git/emojiMe/workspace/devel/lib 
+Requires: 

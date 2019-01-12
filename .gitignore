@@ -1,6 +1,0 @@
-# ignore an entire directory
-/workspace/build
-
-/workspace/devel
-
-/workspace/src/emojime/src/Code
