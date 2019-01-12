@@ -1,2 +1,0 @@
-emojime:messages
--DCATKIN_DEVEL_PREFIX=/home/tepic/Documents/tepic/Git/emojiMe/workspace/devel -DCMAKE_INSTALL_PREFIX=/home/tepic/Documents/tepic/Git/emojiMe/workspace/install -G Unix Makefiles
