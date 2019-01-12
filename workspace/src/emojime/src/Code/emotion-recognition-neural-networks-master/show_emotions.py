@@ -61,7 +61,10 @@ def callback_faces(data):
 
         # Write results in frame
         if result is not None:
-            face_image = feelings_faces[np.argmax(result[0])]
+            detected_emotion = np.argmax(result[0])
+            if detected_emotion<=2:
+                detected_emotion = 0
+            face_image = feelings_faces[detected_emotion]
             emotion_Array+=[np.argmax(result[0])]
 
         #encoding is correct - CHECKED
