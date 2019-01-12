@@ -49,7 +49,8 @@ $ sudo apt install python-rosinstall python-rosinstall-generator python-wstool b
 In this work we have used python(2) version. In reference [1] they have used pip3, but we will use just a pip for executing the following command to install face_recognition library for python:
 
 ```
-$ pip3 install face_recognition
+$ pip install face_recognition
+# $ pip3 install face_recognition
 ```
 According to [1]: If you are having trouble with installation, you can also try out a [pre-configured VM](https://medium.com/@ageitgey/try-deep-learning-in-python-now-with-a-fully-pre-configured-vm-1d97d4c3e9b).
 
