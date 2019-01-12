@@ -93,14 +93,18 @@ $ cd ~/../emojiMe/workspace/
 $ catkin_make
 ```
 
-Now, in order to use the code open 5 terminalsL
+Now, in order to use the code open 5 terminals:
+
 **Terminal 1**
+
 Start ROS
 ```
 # Terminal 1
 $ roscore
 ```
+
 **Terminal 2**
+
 Start camera. There are two cameras - webCAM (USB cam) and IP CAM.
 How to install IP CAM [here](https://thecodacus.com/ip-webcam-opencv-wireless-camera/)
 ```
@@ -108,7 +112,9 @@ How to install IP CAM [here](https://thecodacus.com/ip-webcam-opencv-wireless-ca
 $ cd ~/../emojiMe/workspace/src/emojime/src/
 $ python live_video.py
 ```
+
 **Terminal 3**
+
 Start algorithm to extract faces
 ```
 # Terminal 3
@@ -116,7 +122,9 @@ $ cd ~/../emojiMe/workspace/
 $ source devel/setup.bash
 $ roslaunch emojime launch_face_extraction.launch
 ```
+
 **Terminal 4**
+
 Start algorithm to extract emotions from images received as ImageVector over ROS pub/sub. This message is custom made.
 ```
 # Terminal 4
@@ -125,11 +133,13 @@ $ source devel/setup.bash
 $ roslaunch emojime launch_show_emotions.launch 
 # $ roslaunch emojime launch_emotion_extraction.launch
 ```
+
 **Terminal 5**
+
 Start algorithm to extract emotions from images received as ImageVector over ROS pub/sub. This message is custom made.
 ```
 # Terminal 5
-$ cd ~/../emojiMe/workspace/
+$ cd ~/../emojiMe/workspace/src/emojime/src/
 $ python display_emotions.py
 ```
 
