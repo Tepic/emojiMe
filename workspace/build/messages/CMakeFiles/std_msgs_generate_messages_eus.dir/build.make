@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/milan/Documents/Tepic/Git/emojiMe/workspace/src
+CMAKE_SOURCE_DIR = /home/tepic/Documents/tepic/Git/emojiMe/workspace/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/milan/Documents/Tepic/Git/emojiMe/workspace/build
+CMAKE_BINARY_DIR = /home/tepic/Documents/tepic/Git/emojiMe/workspace/build
 
 # Utility rule file for std_msgs_generate_messages_eus.
 
@@ -63,10 +63,10 @@ messages/CMakeFiles/std_msgs_generate_messages_eus.dir/build: std_msgs_generate_
 .PHONY : messages/CMakeFiles/std_msgs_generate_messages_eus.dir/build
 
 messages/CMakeFiles/std_msgs_generate_messages_eus.dir/clean:
-	cd /home/milan/Documents/Tepic/Git/emojiMe/workspace/build/messages && $(CMAKE_COMMAND) -P CMakeFiles/std_msgs_generate_messages_eus.dir/cmake_clean.cmake
+	cd /home/tepic/Documents/tepic/Git/emojiMe/workspace/build/messages && $(CMAKE_COMMAND) -P CMakeFiles/std_msgs_generate_messages_eus.dir/cmake_clean.cmake
 .PHONY : messages/CMakeFiles/std_msgs_generate_messages_eus.dir/clean
 
 messages/CMakeFiles/std_msgs_generate_messages_eus.dir/depend:
-	cd /home/milan/Documents/Tepic/Git/emojiMe/workspace/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/milan/Documents/Tepic/Git/emojiMe/workspace/src /home/milan/Documents/Tepic/Git/emojiMe/workspace/src/messages /home/milan/Documents/Tepic/Git/emojiMe/workspace/build /home/milan/Documents/Tepic/Git/emojiMe/workspace/build/messages /home/milan/Documents/Tepic/Git/emojiMe/workspace/build/messages/CMakeFiles/std_msgs_generate_messages_eus.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/tepic/Documents/tepic/Git/emojiMe/workspace/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/tepic/Documents/tepic/Git/emojiMe/workspace/src /home/tepic/Documents/tepic/Git/emojiMe/workspace/src/messages /home/tepic/Documents/tepic/Git/emojiMe/workspace/build /home/tepic/Documents/tepic/Git/emojiMe/workspace/build/messages /home/tepic/Documents/tepic/Git/emojiMe/workspace/build/messages/CMakeFiles/std_msgs_generate_messages_eus.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : messages/CMakeFiles/std_msgs_generate_messages_eus.dir/depend
 

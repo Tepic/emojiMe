@@ -1,8 +1,8 @@
-# Install script for directory: /home/milan/Documents/Tepic/Git/emojiMe/workspace/src/emojime
+# Install script for directory: /home/tepic/Documents/tepic/Git/emojiMe/workspace/src/emojime
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/milan/Documents/Tepic/Git/emojiMe/workspace/install")
+  set(CMAKE_INSTALL_PREFIX "/home/tepic/Documents/tepic/Git/emojiMe/workspace/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,17 +38,17 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/milan/Documents/Tepic/Git/emojiMe/workspace/build/emojime/catkin_generated/installspace/emojime.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/tepic/Documents/tepic/Git/emojiMe/workspace/build/emojime/catkin_generated/installspace/emojime.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/emojime/cmake" TYPE FILE FILES
-    "/home/milan/Documents/Tepic/Git/emojiMe/workspace/build/emojime/catkin_generated/installspace/emojimeConfig.cmake"
-    "/home/milan/Documents/Tepic/Git/emojiMe/workspace/build/emojime/catkin_generated/installspace/emojimeConfig-version.cmake"
+    "/home/tepic/Documents/tepic/Git/emojiMe/workspace/build/emojime/catkin_generated/installspace/emojimeConfig.cmake"
+    "/home/tepic/Documents/tepic/Git/emojiMe/workspace/build/emojime/catkin_generated/installspace/emojimeConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/emojime" TYPE FILE FILES "/home/milan/Documents/Tepic/Git/emojiMe/workspace/src/emojime/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/emojime" TYPE FILE FILES "/home/tepic/Documents/tepic/Git/emojiMe/workspace/src/emojime/package.xml")
 endif()
 

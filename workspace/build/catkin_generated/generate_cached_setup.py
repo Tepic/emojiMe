@@ -19,9 +19,9 @@ except ImportError:
             break
     from catkin.environment_cache import generate_environment_script
 
-code = generate_environment_script('/home/milan/Documents/Tepic/Git/emojiMe/workspace/devel/env.sh')
+code = generate_environment_script('/home/tepic/Documents/tepic/Git/emojiMe/workspace/devel/env.sh')
 
-output_filename = '/home/milan/Documents/Tepic/Git/emojiMe/workspace/build/catkin_generated/setup_cached.sh'
+output_filename = '/home/tepic/Documents/tepic/Git/emojiMe/workspace/build/catkin_generated/setup_cached.sh'
 with open(output_filename, 'w') as f:
     #print('Generate script for cached setup "%s"' % output_filename)
     f.write('\n'.join(code))

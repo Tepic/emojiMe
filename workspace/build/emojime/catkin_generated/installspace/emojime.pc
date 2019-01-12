@@ -1,8 +1,8 @@
-prefix=/home/milan/Documents/Tepic/Git/emojiMe/workspace/install
+prefix=/home/tepic/Documents/tepic/Git/emojiMe/workspace/install
 
 Name: emojime
 Description: Description of emojime
 Version: 0.0.0
 Cflags: 
-Libs: -L/home/milan/Documents/Tepic/Git/emojiMe/workspace/install/lib 
+Libs: -L/home/tepic/Documents/tepic/Git/emojiMe/workspace/install/lib 
 Requires: 

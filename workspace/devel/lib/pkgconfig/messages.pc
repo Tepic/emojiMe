@@ -1,8 +1,8 @@
-prefix=/home/milan/Documents/Tepic/Git/emojiMe/workspace/devel
+prefix=/home/tepic/Documents/tepic/Git/emojiMe/workspace/devel
 
 Name: messages
 Description: Description of messages
 Version: 0.0.0
-Cflags: -I/home/milan/Documents/Tepic/Git/emojiMe/workspace/devel/include
-Libs: -L/home/milan/Documents/Tepic/Git/emojiMe/workspace/devel/lib 
+Cflags: -I/home/tepic/Documents/tepic/Git/emojiMe/workspace/devel/include
+Libs: -L/home/tepic/Documents/tepic/Git/emojiMe/workspace/devel/lib 
 Requires: 

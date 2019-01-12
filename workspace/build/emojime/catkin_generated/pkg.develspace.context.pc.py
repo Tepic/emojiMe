@@ -4,5 +4,5 @@ PROJECT_PKG_CONFIG_INCLUDE_DIRS = "".split(';') if "" != "" else []
 PROJECT_CATKIN_DEPENDS = "".replace(';', ' ')
 PKG_CONFIG_LIBRARIES_WITH_PREFIX = "".split(';') if "" != "" else []
 PROJECT_NAME = "emojime"
-PROJECT_SPACE_DIR = "/home/milan/Documents/Tepic/Git/emojiMe/workspace/devel"
+PROJECT_SPACE_DIR = "/home/tepic/Documents/tepic/Git/emojiMe/workspace/devel"
 PROJECT_VERSION = "0.0.0"

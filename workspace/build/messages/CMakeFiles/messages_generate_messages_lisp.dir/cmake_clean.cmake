@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/messages_generate_messages_lisp"
-  "/home/milan/Documents/Tepic/Git/emojiMe/workspace/devel/share/common-lisp/ros/messages/msg/ImageArray.lisp"
+  "/home/tepic/Documents/tepic/Git/emojiMe/workspace/devel/share/common-lisp/ros/messages/msg/ImageArray.lisp"
 )
 
 # Per-language clean rules from dependency scanning.

@@ -67,14 +67,14 @@ set(messages_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("TRUE" STREQUAL "TRUE")
-  set(messages_SOURCE_PREFIX /home/milan/Documents/Tepic/Git/emojiMe/workspace/src/messages)
-  set(messages_DEVEL_PREFIX /home/milan/Documents/Tepic/Git/emojiMe/workspace/devel)
+  set(messages_SOURCE_PREFIX /home/tepic/Documents/tepic/Git/emojiMe/workspace/src/messages)
+  set(messages_DEVEL_PREFIX /home/tepic/Documents/tepic/Git/emojiMe/workspace/devel)
   set(messages_INSTALL_PREFIX "")
   set(messages_PREFIX ${messages_DEVEL_PREFIX})
 else()
   set(messages_SOURCE_PREFIX "")
   set(messages_DEVEL_PREFIX "")
-  set(messages_INSTALL_PREFIX /home/milan/Documents/Tepic/Git/emojiMe/workspace/install)
+  set(messages_INSTALL_PREFIX /home/tepic/Documents/tepic/Git/emojiMe/workspace/install)
   set(messages_PREFIX ${messages_INSTALL_PREFIX})
 endif()
 
@@ -91,9 +91,9 @@ endif()
 # flag project as catkin-based to distinguish if a find_package()-ed project is a catkin project
 set(messages_FOUND_CATKIN_PROJECT TRUE)
 
-if(NOT "/home/milan/Documents/Tepic/Git/emojiMe/workspace/devel/include " STREQUAL " ")
+if(NOT "/home/tepic/Documents/tepic/Git/emojiMe/workspace/devel/include " STREQUAL " ")
   set(messages_INCLUDE_DIRS "")
-  set(_include_dirs "/home/milan/Documents/Tepic/Git/emojiMe/workspace/devel/include")
+  set(_include_dirs "/home/tepic/Documents/tepic/Git/emojiMe/workspace/devel/include")
   if(NOT " " STREQUAL " ")
     set(_report "Check the issue tracker '' and consider creating a ticket if the problem has not been reported yet.")
   elseif(NOT " " STREQUAL " ")
@@ -110,7 +110,7 @@ if(NOT "/home/milan/Documents/Tepic/Git/emojiMe/workspace/devel/include " STREQU
         message(FATAL_ERROR "Project 'messages' specifies '${idir}' as an include dir, which is not found.  It does not exist in '${include}'.  ${_report}")
       endif()
     else()
-      message(FATAL_ERROR "Project 'messages' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/milan/Documents/Tepic/Git/emojiMe/workspace/src/messages/${idir}'.  ${_report}")
+      message(FATAL_ERROR "Project 'messages' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/tepic/Documents/tepic/Git/emojiMe/workspace/src/messages/${idir}'.  ${_report}")
     endif()
     _list_append_unique(messages_INCLUDE_DIRS ${include})
   endforeach()
@@ -129,7 +129,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/milan/Documents/Tepic/Git/emojiMe/workspace/devel/lib;/opt/ros/melodic/lib)
+    foreach(path /home/tepic/Documents/tepic/Git/emojiMe/workspace/devel/lib;/opt/ros/melodic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)
