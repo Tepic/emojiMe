@@ -7,6 +7,7 @@ from PIL import Image, ImageDraw, ImageFont
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 import math
+import random
 
 import numpy as np
 import cv2
@@ -191,6 +192,59 @@ def getNewResults():
 			setNewResults(satisfied,shocked,neutral,bored)#,stopFlag)
 			#percentages = [satisfied,shocked,neutral,bored]
 
+def getNewResults_evaluation():
+	global satisfied
+	global shocked
+	global neutral
+	global bored
+	global stopFlag
+	global percentages
+
+	# elements = [100, 0, 0, 0, 80, 0, 15, 5, 40, 15, 25, 20, 30, 15, 30, 25, 60, 5, 15, 20, 65, 5, 15, 15]
+	elements = [55, 15, 15, 25]
+
+	round = 0
+	while(True):
+		print("Press 1..4 to change emotion response:")
+		print("1 - satisfied (green)")
+		print("2 - fine, but people getting bored")
+		print("3 - people almost sleep")
+		print("4 - everybody is dead")
+		input = raw_input(">> ")
+
+		if(input!=''):
+			input = int(input)
+
+		if(input==1):
+			elements[0] = random.randrange(60,70,1) # 2+
+			elements[2] = random.randrange(10,20,1)
+			elements[3] = random.randrange(5,10,1)
+			elements[1] = 100-(elements[0]+elements[2]+elements[3])
+		else:
+			if(input==2):
+				elements[0] = random.randrange(45,49,1) # 1,5..2
+				elements[2] = random.randrange(25,30,1)
+				elements[3] = random.randrange(15,20,1)
+				elements[1] = 100-(elements[0]+elements[2]+elements[3])
+			else:
+				if(input==3):
+					elements[0] = random.randrange(30,37,1) # 1..1,5
+					elements[2] = random.randrange(25,29,1)
+					elements[3] = random.randrange(25,29,1)
+					elements[1] = 100-(elements[0]+elements[2]+elements[3])
+				else:
+					if(input==4):
+						elements[0] = random.randrange(20,25,1) # 1-
+						elements[2] = random.randrange(25,30,1)
+						elements[3] = random.randrange(25,30,1)
+						elements[1] = 100-(elements[0]+elements[2]+elements[3])									
+
+		satisfied = elements[round*4+0]
+		shocked = elements[round*4+1]
+		neutral = elements[round*4+2]
+		bored = elements[round*4+3]
+		setNewResults(satisfied,shocked,neutral,bored)
+
 def setNewResults(satisfied_input,shocked_input,neutral_input,bored_input):#,status=False):
 	global satisfied
 	global shocked
@@ -233,8 +287,13 @@ def main():
 	print("Shutting down")
 
 if __name__ == '__main__':
+
+	useROS = False
 	try:
-		input_thread = threading.Thread(target=getNewResults)
+		if(useROS):			
+			input_thread = threading.Thread(target=getNewResults)
+		else:
+			input_thread = threading.Thread(target=getNewResults_evaluation)
 		
 		#enables the thread to kill itself after the end of the program has been reached
 		# this line must be executed before the thread has started
